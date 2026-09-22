@@ -1,744 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Dear God — daily prayers, Bible verses, faith-filled encouragement, and printable resources.">
-<meta name="robots" content="index,follow">
-<meta property="og:title" content="Dear God — Faith. Prayer. Peace.">
-<meta property="og:description" content="Daily prayers, Bible verses, and faith-filled resources to strengthen your faith and uplift your soul.">
-<meta name="theme-color" content="#f8f3e9">
-<title>Dear God — Faith. Prayer. Peace.</title>
-
-<style>
-:root{
-  --cream:#f8f3e9;
-  --paper:#fffdf8;
-  --ink:#171513;
-  --gold:#b88a3b;
-  --muted:#756c60;
-  --line:#e4d8c4;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Georgia,"Times New Roman",serif;
-  background:var(--cream);
-  color:var(--ink)
-}
-a{text-decoration:none;color:inherit}
-.top{
-  background:#111;
-  color:#fff;
-  padding:12px 6%;
-  text-align:center;
-  font:600 12px Arial;
-  letter-spacing:2px
-}
-header{
-  background:rgba(255,253,248,.96);
-  border-bottom:1px solid var(--line);
-  position:sticky;
-  top:0;
-  z-index:5
-}
-nav{
-  max-width:1180px;
-  margin:auto;
-  padding:20px 24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px
-}
-.brand{font-size:30px;letter-spacing:1px}
-.brand small{
-  display:block;
-  color:var(--gold);
-  font:italic 13px Georgia;
-  letter-spacing:2px
-}
-.links{
-  display:flex;
-  gap:24px;
-  font:600 12px Arial;
-  letter-spacing:.8px
-}
-.links a:hover{color:var(--gold)}
-.hero{
-  max-width:1180px;
-  margin:0 auto;
-  padding:75px 24px 55px;
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:50px;
-  align-items:center
-}
-.eyebrow{
-  font:700 12px Arial;
-  letter-spacing:3px;
-  color:var(--gold);
-  text-transform:uppercase
-}
-h1{
-  font-size:clamp(48px,6vw,78px);
-  line-height:.95;
-  margin:18px 0
-}
-h1 em{font-weight:normal;color:var(--gold)}
-.hero p{
-  font:18px/1.7 Arial;
-  color:var(--muted);
-  max-width:560px
-}
-.btn{
-  display:inline-block;
-  background:#111;
-  color:#fff;
-  padding:15px 23px;
-  border-radius:3px;
-  font:700 12px Arial;
-  letter-spacing:1px;
-  margin-top:12px
-}
-.btn.gold{background:var(--gold)}
-.hero-art{
-  min-height:430px;
-  border-radius:220px 220px 12px 12px;
-  background:
-    radial-gradient(circle at 55% 25%,#ead8b8 0 12%,transparent 13%),
-    linear-gradient(145deg,#eee3d0,#d4c1a1);
-  position:relative;
-  overflow:hidden
-}
-.hero-art:after{
-  content:"";
-  position:absolute;
-  width:250px;
-  height:360px;
-  right:15%;
-  bottom:-60px;
-  border-radius:48% 48% 8% 8%;
-  background:linear-gradient(135deg,#25201d,#080706);
-  transform:rotate(4deg)
-}
-.quote{
-  position:absolute;
-  left:28px;
-  bottom:28px;
-  background:rgba(255,253,248,.92);
-  padding:22px;
-  max-width:280px;
-  font-style:italic;
-  line-height:1.5;
-  z-index:1
-}
-.cards{
-  max-width:1180px;
-  margin:auto;
-  padding:0 24px 70px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px
-}
-.card{
-  background:var(--paper);
-  border:1px solid var(--line);
-  padding:28px;
-  border-radius:8px
-}
-.icon{font-size:28px;color:var(--gold)}
-.card h3{margin:10px 0;font-size:21px}
-.card p{font:14px/1.6 Arial;color:var(--muted)}
-section{padding:70px 24px}
-.section-inner{max-width:1180px;margin:auto}
-.section-head{
-  text-align:center;
-  max-width:650px;
-  margin:0 auto 35px
-}
-.section-head h2{font-size:40px;margin:10px}
-.section-head p{font:15px/1.7 Arial;color:var(--muted)}
-.products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px
-}
-.product{
-  background:var(--paper);
-  border:1px solid var(--line);
-  padding:14px;
-  border-radius:8px
-}
-.cover{
-  height:210px;
-  border-radius:5px;
-  background:linear-gradient(135deg,#eee3d0,#d5bf96);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  font-size:24px;
-  font-style:italic;
-  padding:20px
-}
-.product h3{font-size:17px;margin:15px 4px 5px}
-.price{font:700 14px Arial;margin:0 4px 12px}
-.product .btn{width:100%;text-align:center;margin:0}
-.feeling{
-  background:#171513;
-  color:white
-}
-.feeling .section-head p{color:#cfc5b6}
-.feelings{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px
-}
-.feel{
-  border:1px solid #5a5043;
-  padding:20px;
-  text-align:center;
-  border-radius:7px;
-  font:14px Arial
-}
-.feel:hover{border-color:var(--gold)}
-.membership{background:#eee4d4}
-.membership-box{
-  max-width:760px;
-  margin:auto;
-  background:var(--paper);
-  padding:42px;
-  text-align:center;
-  border:1px solid var(--line);
-  border-radius:10px
-}
-.membership-box h2{font-size:42px;margin:10px}
-.checks{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  text-align:left;
-  margin:25px auto;
-  max-width:520px;
-  font:14px Arial
-}
-.checks div:before{
-  content:"✓";
-  color:var(--gold);
-  font-weight:bold;
-  margin-right:8px
-}
-.footer{
-  background:#111;
-  color:#fff;
-  padding:45px 24px;
-  text-align:center
-}
-.footer .brand{color:#fff}
-.footer p{font:13px Arial;color:#bdb4a8}
-.signup{
-  max-width:760px;
-  margin:28px auto 0;
-  background:#fffdf8;
-  border:1px solid #e4d8c4;
-  padding:28px;
-  border-radius:10px
-}
-.signup h3{margin:0 0 8px;font-size:25px}
-.signup p{font:14px/1.6 Arial;color:#756c60}
-.signup form{display:flex;gap:10px;margin-top:16px}
-.signup input{
-  flex:1;
-  padding:15px;
-  border:1px solid #d8cbb7;
-  border-radius:4px;
-  font-size:15px
-}
-.signup button{
-  border:0;
-  cursor:pointer;
-  background:#111;
-  color:#fff;
-  padding:15px 20px;
-  border-radius:4px;
-  font:700 12px Arial;
-  letter-spacing:1px
-}
-.notice{
-  display:none;
-  margin-top:12px;
-  color:#7b5a20;
-  font:600 13px Arial
-}
-.checkout-note{
-  font:12px Arial;
-  color:#756c60;
-  margin-top:10px
-}
-.cart{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:#111;
-  color:#fff;
-  padding:14px 18px;
-  border-radius:30px;
-  font:700 12px Arial;
-  z-index:10;
-  box-shadow:0 8px 25px rgba(0,0,0,.18)
-}
-.cart span{
-  background:#b88a3b;
-  padding:3px 7px;
-  border-radius:10px;
-  margin-left:6px
-}
-@media(max-width:850px){
-  .links{display:none}
-  .hero{grid-template-columns:1fr}
-  .hero-art{min-height:330px}
-  .cards,.products{grid-template-columns:1fr 1fr}
-  .feelings{grid-template-columns:1fr 1fr}
-}
-@media(max-width:520px){
-  .cards,.products,.checks{grid-template-columns:1fr}
-  .hero{padding-top:45px}
-  h1{font-size:48px}
-  .membership-box{padding:28px 20px}
-  .signup form{flex-direction:column}
-}
-</style>
-</head>
-
-<body>
-
-<div class="top">
-A PEACEFUL SPACE TO GROW IN FAITH &amp; ENCOURAGE YOUR HEART
-</div>
-
-<header>
-<nav>
-<a class="brand" href="#">
-Dear God
-<small>Faith. Prayer. Peace.</small>
-</a>
-
-<div class="links">
-<a href="#prayers">PRAYERS</a>
-<a href="#verses">VERSES</a>
-<a href="#shop">SHOP</a>
-<a href="#membership">MEMBERSHIP</a>
-<a href="#about">ABOUT</a>
-</div>
-</nav>
-</header>
-
-<main>
-
-<section class="hero">
-<div>
-<div class="eyebrow">Daily encouragement</div>
-
-<h1>
-You are never alone.<br>
-<em>God is always with you.</em>
-</h1>
-
-<p>
-Daily prayers, Bible verses, and faith-filled resources to strengthen your faith and uplift your soul.
-</p>
-
-<a class="btn" href="#prayers">START YOUR JOURNEY</a>
-</div>
-
-<div class="hero-art">
-<div class="quote">
-“Be still, and know that I am God.”
-<br>
-<small>— Psalm 46:10</small>
-</div>
-</div>
-</section>
-
-<div class="cards">
-
-<article class="card" id="verses">
-<div class="icon">♡</div>
-<h3>Verse of the Day</h3>
-<p>
-Be inspired daily with God's Word and a little encouragement for your heart.
-</p>
-<a class="btn" href="#">READ TODAY'S VERSE</a>
-</article>
-
-<article class="card" id="prayers">
-<div class="icon">✦</div>
-<h3>Daily Prayer</h3>
-<p>
-Start your day with a purposeful prayer for peace, strength, gratitude, and hope.
-</p>
-<a class="btn" href="#">PRAY WITH US</a>
-</article>
-
-<article class="card">
-<div class="icon">♡</div>
-<h3>How Are You Feeling?</h3>
-<p>
-Choose how you feel and discover a prayer and Scripture for that moment.
-</p>
-<a class="btn" href="#feeling">FIND YOUR PRAYER</a>
-</article>
-
-</div>
-
-<section id="shop">
-<div class="section-inner">
-
-<div class="section-head">
-<div class="eyebrow">Faith-filled resources</div>
-<h2>Shop the Collection</h2>
-<p>
-Beautiful digital resources you can use privately, print at home, or give as encouragement to someone you love.
-</p>
-</div>
-
-<div class="products">
-
-<article class="product">
-<div class="cover">Prayer<br>Journal</div>
-<h3>Printable Prayer Journal</h3>
-<p class="price">$9.99</p>
-<a class="btn" href="#">ADD TO CART</a>
-</article>
-
-<article class="product">
-<div class="cover">30 Days<br>of Prayers</div>
-<h3>30 Days of Prayers eBook</h3>
-<p class="price">$7.99</p>
-<a class="btn" href="#">ADD TO CART</a>
-</article>
-
-<article class="product">
-<div class="cover">Trust<br>in the Lord</div>
-<h3>Bible Verse Wall Art</h3>
-<p class="price">$4.99</p>
-<a class="btn" href="#">ADD TO CART</a>
-</article>
-
-<article class="product">
-<div class="cover">Daily<br>Devotional</div>
-<h3>Daily Devotional Journal</h3>
-<p class="price">$12.99</p>
-<a class="btn" href="#">ADD TO CART</a>
-</article>
-
-</div>
-</div>
-</section>
-
-<section class="feeling" id="feeling">
-
-<div class="section-head">
-<div class="eyebrow">A prayer for this moment</div>
-<h2>How Are You Feeling Today?</h2>
-<p>
-Choose a feeling below to find encouragement and Scripture.
-</p>
-</div>
-
-<div class="section-inner feelings">
-
-<div class="feel">☁ Anxious</div>
-<div class="feel">☹ Sad</div>
-<div class="feel">♡ Lonely</div>
-<div class="feel">✦ Overwhelmed</div>
-<div class="feel">♡ Thankful</div>
-<div class="feel">✦ Faithful</div>
-<div class="feel">♡ Hopeful</div>
-<div class="feel">☼ Angry</div>
-
-</div>
-</section>
-
-<section>
-
-<div class="signup">
-
-<div class="eyebrow">A free gift for you</div>
-
-<h3>Get the Free Prayer Journal</h3>
-
-<p>
-Join the Dear God community and receive encouragement, prayers, and your free printable prayer journal.
-</p>
-
-<form onsubmit="signupEmail(event)">
-<input
-type="email"
-name="email"
-placeholder="Your email address"
-aria-label="Email address"
-required
->
-
-<button type="submit">GET MY FREE JOURNAL</button>
-</form>
-
-<div class="notice" id="signupNotice"></div>
-
-<div class="checkout-note">
-No spam. Just faith-filled encouragement.
-</div>
-
-</div>
-
-</section>
-
-<section class="membership" id="membership">
-
-<div class="membership-box">
-
-<div class="eyebrow">The Faith Circle</div>
-
-<h2>
-Grow Deeper in Your Relationship With God
-</h2>
-
-<p>
-Exclusive prayers, devotionals, Bible studies, and new resources delivered to members.
-</p>
-
-<div class="checks">
-
-<div>Daily prayers &amp; devotionals</div>
-<div>Exclusive Bible studies</div>
-<div>Printable resources</div>
-<div>Members-only content</div>
-<div>Early access to new products</div>
-<div>Cancel anytime</div>
-
-</div>
-
-<h3>$7.99 / month</h3>
-
-<a
-class="btn gold"
-href="#"
-onclick="joinMembership(); return false;"
->
-JOIN THE FAITH CIRCLE
-</a>
-
-</div>
-</section>
-
-</main>
-
-<footer class="footer" id="about">
-
-<div class="brand">
-Dear God
-<small>Faith. Prayer. Peace.</small>
-</div>
-
-<p>
-Helping you grow closer to God — one prayer, one verse, one day at a time.
-</p>
-
-<p>
-© 2026 Dear God. All rights reserved.
-</p>
-
-</footer>
-
-<style>
-</style>
-
 <script>
-
-const MEMBERSHIP_PAYMENT_LINK = "";
-
-const EMAIL_SIGNUP_ENDPOINT = "";
-
-const cart = [];
-
-function addToCart(name, price) {
-cart.push({name, price});
-updateCart();
-alert(name + " was added to your cart.");
-}
-
-function updateCart() {
-document.getElementById("cartCount").textContent = cart.length;
-}
-
-function openCart() {
-
-if (!cart.length) {
-alert("Your cart is empty.");
-return;
-}
-
-const total = cart.reduce(
-(sum, item) => sum + item.price,
-0
-);
-
-const items = cart.map(
-i => "• " + i.name + " — $" + i.price.toFixed(2)
-).join("\n");
-
-alert(
-"Your cart:\n\n" +
-items +
-"\n\nTotal: $" +
-total.toFixed(2) +
-"\n\nTo accept real payments, connect these products to Stripe or Shopify."
-);
-
-}
-
-function joinMembership() {
-
-if (
-MEMBERSHIP_PAYMENT_LINK &&
-!MEMBERSHIP_PAYMENT_LINK.includes("PASTE_")
-) {
-
-window.location.href = MEMBERSHIP_PAYMENT_LINK;
-
-} else {
-
-alert(
-"Membership checkout is not connected yet. Add your LIVE Stripe Payment Link before launch."
-);
-
-}
-
-}
-
-async function signupEmail(event) {
-
-event.preventDefault();
-
-const form = event.target;
-const email = form.email.value.trim();
-const notice = document.getElementById("signupNotice");
-
-if (!email) return;
-
-if (EMAIL_SIGNUP_ENDPOINT) {
-
-try {
-
-const response = await fetch(
-EMAIL_SIGNUP_ENDPOINT,
-{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({email})
-}
-);
-
-if (!response.ok) {
-throw new Error("Signup failed");
-}
-
-} catch(e) {
-
-notice.textContent =
-"We couldn't complete the signup. Please try again.";
-
-notice.style.display = "block";
-
-return;
-
-}
-
-} else {
-
-const saved =
-JSON.parse(
-localStorage.getItem("dearGodEmails") || "[]"
-);
-
-if (!saved.includes(email)) {
-saved.push(email);
-}
-
-localStorage.setItem(
-"dearGodEmails",
-JSON.stringify(saved)
-);
-
-}
-
-notice.textContent =
-"You're signed up! Watch your inbox for your free prayer resource.";
-
-notice.style.display = "block";
-
-form.reset();
-
-}
-
-document.addEventListener(
-"DOMContentLoaded",
-() => {
-
-document.querySelectorAll(
-".product .btn"
-).forEach((button,index) => {
-
-const products = [
-
-[
-"Printable Prayer Journal",
-9.99
-],
-
-[
-"30 Days of Prayers eBook",
-7.99
-],
-
-[
-"Bible Verse Wall Art",
-4.99
-],
-
-[
-"Daily Devotional Journal",
-12.99
-]
-
+const verses = [
+  {
+    ref: "Psalm 46:10",
+    text: "Be still, and know that I am God.",
+    encouragement: "You do not have to solve everything today. Pause, breathe, and remember that God is with you."
+  },
+  {
+    ref: "Isaiah 41:10",
+    text: "Fear not, for I am with you; be not dismayed, for I am your God.",
+    encouragement: "Whatever you are facing, you do not have to face it alone."
+  },
+  {
+    ref: "Jeremiah 29:11",
+    text: "For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a hope.",
+    encouragement: "Your current season is not the end of your story."
+  },
+  {
+    ref: "Philippians 4:13",
+    text: "I can do all things through Christ who strengthens me.",
+    encouragement: "Ask God for strength for the next step, not every step at once."
+  },
+  {
+    ref: "Psalm 34:18",
+    text: "The Lord is near to the brokenhearted and saves the crushed in spirit.",
+    encouragement: "God is especially near when your heart feels heavy."
+  },
+  {
+    ref: "Proverbs 3:5-6",
+    text: "Trust in the Lord with all your heart, and do not lean on your own understanding.",
+    encouragement: "You can trust God even when you cannot see the whole path."
+  }
 ];
 
-button.onclick = (e) => {
+const prayers = [
+  "Dear God, thank You for giving me another day. Quiet my heart, guide my decisions, protect my family, and help me trust You with what I cannot control. Give me peace for today and strength for whatever comes next. In Jesus’ name, Amen.",
+  "Dear God, when I feel overwhelmed, remind me that I do not have to carry everything by myself. Help me slow down, breathe, pray, and place my worries in Your hands. Give me wisdom and peace. Amen.",
+  "Dear God, thank You for Your love and mercy. Help me notice the blessings around me today and carry gratitude into everything I do. Keep my heart close to You. Amen.",
+  "Dear God, strengthen my faith when I feel uncertain. Help me remember the times You have carried me before and trust that You are still working in my life. Amen."
+];
 
-e.preventDefault();
-
-addToCart(
-products[index][0],
-products[index][1]
-);
-
+const feelingData = {
+  Anxious: {
+    ref: "Philippians 4:6-7",
+    verse: "Do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God.",
+    prayer: "Dear God, calm my anxious thoughts. Help me release each worry to You and receive Your peace. Guard my heart and mind today. Amen."
+  },
+  Sad: {
+    ref: "Psalm 34:18",
+    verse: "The Lord is near to the brokenhearted and saves the crushed in spirit.",
+    prayer: "Dear God, meet me in this sadness. Comfort my heart and remind me that I am never alone. Amen."
+  },
+  Lonely: {
+    ref: "Deuteronomy 31:8",
+    verse: "It is the Lord who goes before you. He will be with you; He will not leave you or forsake you.",
+    prayer: "Dear God, when I feel alone, remind me of Your constant presence. Surround me with healthy love and meaningful connection. Amen."
+  },
+  Overwhelmed: {
+    ref: "Matthew 11:28",
+    verse: "Come to me, all who labor and are heavy laden, and I will give you rest.",
+    prayer: "Dear God, I am carrying more than I can handle. Help me give You what is too heavy for me and focus on one step at a time. Amen."
+  },
+  Thankful: {
+    ref: "1 Thessalonians 5:18",
+    verse: "Give thanks in all circumstances; for this is the will of God in Christ Jesus for you.",
+    prayer: "Dear God, thank You for every blessing, big and small. Keep my heart grateful today. Amen."
+  },
+  Faithful: {
+    ref: "Hebrews 11:1",
+    verse: "Now faith is the assurance of things hoped for, the conviction of things not seen.",
+    prayer: "Dear God, continue growing my faith. Help me trust You even when I cannot see what You are doing. Amen."
+  },
+  Hopeful: {
+    ref: "Romans 15:13",
+    verse: "May the God of hope fill you with all joy and peace in believing.",
+    prayer: "Dear God, fill me with hope for what is ahead. Help me remain faithful in the present. Amen."
+  },
+  Angry: {
+    ref: "James 1:19",
+    verse: "Let every person be quick to hear, slow to speak, slow to anger.",
+    prayer: "Dear God, help me slow down before I react. Give me wisdom to express what I feel without hurting myself or others. Replace anger with peace. Amen."
+  }
 };
 
-});
-
+function todayIndex(length) {
+  const d = new Date();
+  const start = new Date(d.getFullYear(), 0, 0);
+  const day = Math.floor((d - start) / 86400000);
+  return day % length;
 }
-);
 
+function showVerse() {
+  const v = verses[todayIndex(verses.length)];
+
+  const text = document.getElementById("verseText");
+  const ref = document.getElementById("verseRef");
+  const encouragement = document.getElementById("verseEncouragement");
+
+  if (text) text.textContent = v.text;
+  if (ref) ref.textContent = "— " + v.ref;
+  if (encouragement) encouragement.textContent = v.encouragement;
+}
+
+function showPrayer() {
+  const prayer = document.getElementById("prayerText");
+
+  if (prayer) {
+    prayer.textContent = prayers[todayIndex(prayers.length)];
+  }
+}
+
+function showFeeling(name) {
+  const f = feelingData[name];
+  const box = document.getElementById("feelingResult");
+
+  if (!box || !f) return;
+
+  box.hidden = false;
+
+  box.innerHTML =
+    "<h3>" + name + "</h3>" +
+    "<div><em>“" + f.verse + "”</em><br><strong>— " + f.ref + "</strong></div>" +
+    "<div style='margin-top:15px'><strong>Prayer:</strong><br>" + f.prayer + "</div>";
+
+  box.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  showVerse();
+  showPrayer();
+});
 </script>
-
-<div class="cart" onclick="openCart()">
-CART
-<span id="cartCount">0</span>
-</div>
 
 </body>
 </html>
