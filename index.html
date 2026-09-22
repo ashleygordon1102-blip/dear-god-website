@@ -27,7 +27,7 @@ body{
   color:var(--ink)
 }
 a{text-decoration:none;color:inherit}
-.top{
+top{
   background:#111;
   color:#fff;
   padding:12px 6%;
@@ -463,7 +463,36 @@ Choose a feeling below to find encouragement and Scripture.
 
 </div>
 </section>
+<section id="names-of-god" style="background:#f8f3e9;">
+<div class="section-inner">
 
+<div class="section-head">
+<div class="eyebrow">Know His Name</div>
+<h2>Names of God</h2>
+<p>
+Discover the names of God and the beautiful ways Scripture reveals who He is.
+</p>
+</div>
+
+<div class="feelings" style="margin-bottom:25px;">
+<button class="feel" type="button" onclick="showGodName(0)">Elohim</button>
+<button class="feel" type="button" onclick="showGodName(1)">Yahweh</button>
+<button class="feel" type="button" onclick="showGodName(2)">Adonai</button>
+<button class="feel" type="button" onclick="showGodName(3)">El Shaddai</button>
+<button class="feel" type="button" onclick="showGodName(4)">El Roi</button>
+<button class="feel" type="button" onclick="showGodName(5)">Jehovah Jireh</button>
+<button class="feel" type="button" onclick="showGodName(6)">Jehovah Rapha</button>
+<button class="feel" type="button" onclick="showGodName(7)">Jehovah Shalom</button>
+<button class="feel" type="button" onclick="showGodName(8)">Jehovah Nissi</button>
+<button class="feel" type="button" onclick="showGodName(9)">Jehovah Rohi</button>
+<button class="feel" type="button" onclick="showGodName(10)">Immanuel</button>
+<button class="feel" type="button" onclick="showGodName(11)">Abba</button>
+</div>
+
+<div id="nameResult" style="background:#fffdf8;border:1px solid #e4d8c4;border-radius:8px;padding:25px;text-align:center;" hidden></div>
+
+</div>
+</section>
 <section>
 
 <div class="signup">
@@ -735,8 +764,103 @@ products[index][1]
 
 }
 );
+const namesOfGod = [
+  {
+    name:"Elohim",
+    meaning:"God, Creator and Mighty One",
+    ref:"Genesis 1:1",
+    verse:"In the beginning, God created the heavens and the earth."
+  },
+  {
+    name:"Yahweh",
+    meaning:"The LORD; the self-existent God",
+    ref:"Exodus 3:14",
+    verse:"I AM WHO I AM."
+  },
+  {
+    name:"Adonai",
+    meaning:"Lord and Master",
+    ref:"Psalm 8:1",
+    verse:"O LORD, our Lord, how majestic is your name in all the earth!"
+  },
+  {
+    name:"El Shaddai",
+    meaning:"God Almighty",
+    ref:"Genesis 17:1",
+    verse:"I am God Almighty; walk before me, and be blameless."
+  },
+  {
+    name:"El Roi",
+    meaning:"The God Who Sees Me",
+    ref:"Genesis 16:13",
+    verse:"You are a God of seeing."
+  },
+  {
+    name:"Jehovah Jireh",
+    meaning:"The LORD Will Provide",
+    ref:"Genesis 22:14",
+    verse:"The LORD will provide."
+  },
+  {
+    name:"Jehovah Rapha",
+    meaning:"The LORD Who Heals",
+    ref:"Exodus 15:26",
+    verse:"I am the LORD, your healer."
+  },
+  {
+    name:"Jehovah Shalom",
+    meaning:"The LORD Is Peace",
+    ref:"Judges 6:24",
+    verse:"The LORD Is Peace."
+  },
+  {
+    name:"Jehovah Nissi",
+    meaning:"The LORD Is My Banner",
+    ref:"Exodus 17:15",
+    verse:"The LORD is my banner."
+  },
+  {
+    name:"Jehovah Rohi",
+    meaning:"The LORD Is My Shepherd",
+    ref:"Psalm 23:1",
+    verse:"The LORD is my shepherd; I shall not want."
+  },
+  {
+    name:"Immanuel",
+    meaning:"God With Us",
+    ref:"Matthew 1:23",
+    verse:"They shall call his name Immanuel, which means, God with us."
+  },
+  {
+    name:"Abba",
+    meaning:"Father",
+    ref:"Romans 8:15",
+    verse:"We cry, Abba! Father!"
+  }
+];
 
+function showGodName(index) {
+  const god = namesOfGod[index];
+  const box = document.getElementById("nameResult");
+
+  if (!box || !god) return;
+
+  box.hidden = false;
+
+  box.innerHTML =
+    "<h3>" + god.name + "</h3>" +
+    "<p><strong>" + god.meaning + "</strong></p>" +
+    "<p><em>“" + god.verse + "”</em><br>" +
+    "<strong>— " + god.ref + "</strong></p>" +
+    "<p>Take a moment to reflect on what this name of God means for you today.</p>";
+
+  box.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+}
 </script>
+
 
 <div class="cart" onclick="openCart()">
 CART
