@@ -452,15 +452,28 @@ Choose a feeling below to find encouragement and Scripture.
 
 <div class="section-inner feelings">
 
-<div class="feel">☁ Anxious</div>
-<div class="feel">☹ Sad</div>
-<div class="feel">♡ Lonely</div>
-<div class="feel">✦ Overwhelmed</div>
-<div class="feel">♡ Thankful</div>
-<div class="feel">✦ Faithful</div>
-<div class="feel">♡ Hopeful</div>
-<div class="feel">☼ Angry</div>
-
+<button class="feel" type="button" onclick="showFeeling('Anxious')">😰 Anxious</button>
+<button class="feel" type="button" onclick="showFeeling('Sad')">😢 Sad</button>
+<button class="feel" type="button" onclick="showFeeling('Lonely')">🥺 Lonely</button>
+<button class="feel" type="button" onclick="showFeeling('Overwhelmed')">😩 Overwhelmed</button>
+<button class="feel" type="button" onclick="showFeeling('Thankful')">🙏 Thankful</button>
+<button class="feel" type="button" onclick="showFeeling('Faithful')">💪 Faithful</button>
+<button class="feel" type="button" onclick="showFeeling('Hopeful')">😊 Hopeful</button>
+<button class="feel" type="button" onclick="showFeeling('Angry')">😠 Angry</button>
+<button class="feel" type="button" onclick="showFeeling('Peaceful')">😌 Peaceful</button> 
+<button class="feel" type="button" onclick="showFeeling('Loved')">❤️ Loved</button>
+<button class="feel" type="button" onclick="showFeeling('Disappointed')">😔 Disappointed</button>
+<button class="feel" type="button" onclick="showFeeling('Afraid')">😨 Afraid</button>
+<button class="feel" type="button" onclick="showFeeling('Tired')">😴 Tired</button> 
+<button class="feel" type="button" onclick="showFeeling('Confused')">🤔 Confused</button>  
+<button class="feel" type="button" onclick="showFeeling('Hurt')">😭 Hurt</button>
+<button class="feel" type="button" onclick="showFeeling('Joyful')">🥳 Joyful</button> 
+<button class="feel" type="button" onclick="showFeeling('Grateful')">😇 Grateful</button> 
+<button class="feel" type="button" onclick="showFeeling('Financially Strained')">💰 Financially Strained</button>
+<button class="feel" type="button" onclick="showFeeling('Depressed')">😔 Depressed</button>
+<button class="feel" type="button" onclick="showFeeling('Scared')">😨 Scared</button>
+<button class="feel" type="button" onclick="showFeeling('Stressed')">😫 Stressed</button>
+<div id="feelingResult" style="background:#fffdf8;border:1px solid #e4d8c4;border-radius:8px;padding:25px;text-align:center;margin-top:25px;" hidden></div> 
 </div>
 </section>
 <section id="names-of-god" style="background:#f8f3e9;">
@@ -764,7 +777,140 @@ products[index][1]
 
 }
 );
-const namesOfGod = [
+const feelingData = {
+  Anxious:{
+    name:"Jehovah Shalom",
+    meaning:"The LORD Is Peace",
+    ref:"Philippians 4:6-7",
+    verse:"Do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God.",
+    prayer:"Dear God, Jehovah Shalom, calm my anxious thoughts. Help me release each worry to You and receive Your peace. Guard my heart and mind today. Amen."
+  },
+  Sad:{
+    name:"El Roi",
+    meaning:"The God Who Sees Me",
+    ref:"Psalm 34:18",
+    verse:"The Lord is near to the brokenhearted and saves the crushed in spirit.",
+    prayer:"Dear God, El Roi, meet me in this sadness. Thank You for seeing me and staying close when my heart feels heavy. Comfort me and remind me that I am never alone. Amen."
+  },
+  Lonely:{
+    name:"Immanuel",
+    meaning:"God With Us",
+    ref:"Deuteronomy 31:8",
+    verse:"It is the Lord who goes before you. He will be with you; He will not leave you or forsake you.",
+    prayer:"Dear God, Immanuel, when I feel alone, remind me of Your constant presence. Surround me with healthy love and meaningful connection. Amen."
+  },
+  Overwhelmed:{
+    name:"El Shaddai",
+    meaning:"God Almighty",
+    ref:"Matthew 11:28",
+    verse:"Come to me, all who labor and are heavy laden, and I will give you rest.",
+    prayer:"Dear God, El Shaddai, I am carrying more than I can handle. Help me give You what is too heavy for me and focus on one step at a time. Amen."
+  },
+  Thankful:{
+    name:"Jehovah Jireh",
+    meaning:"The LORD Will Provide",
+    ref:"1 Thessalonians 5:18",
+    verse:"Give thanks in all circumstances; for this is the will of God in Christ Jesus for you.",
+    prayer:"Dear God, Jehovah Jireh, thank You for every blessing, big and small. Help me recognize Your provision and keep my heart grateful today. Amen."
+  },
+  Faithful:{
+    name:"Elohim",
+    meaning:"God, Creator and Mighty One",
+    ref:"Hebrews 11:1",
+    verse:"Now faith is the assurance of things hoped for, the conviction of things not seen.",
+    prayer:"Dear God, Elohim, continue growing my faith. Help me trust You even when I cannot see what You are doing. Amen."
+  },
+  Hopeful:{
+    name:"Jehovah Rohi",
+    meaning:"The LORD Is My Shepherd",
+    ref:"Romans 15:13",
+    verse:"May the God of hope fill you with all joy and peace in believing.",
+    prayer:"Dear God, Jehovah Rohi, fill me with hope for what is ahead. Lead me like a shepherd and help me remain faithful in the present. Amen."
+  },
+  Angry:{
+    name:"Adonai",
+    meaning:"Lord and Master",
+    ref:"James 1:19",
+    verse:"Let every person be quick to hear, slow to speak, slow to anger.",
+    prayer:"Dear God, Adonai, help me slow down before I react. Give me wisdom to express what I feel without hurting myself or others. Replace anger with peace. Amen."
+  },
+  Peaceful:{
+    name:"Jehovah Shalom",
+    meaning:"The LORD Is Peace",
+    ref:"Judges 6:24",
+    verse:"The LORD is Peace.",
+    prayer:"Dear God, Jehovah Shalom, thank You for the peace You give me. Help me protect this peace and carry it with me throughout my day. Amen."
+  },
+  Loved:{
+    name:"Abba",
+    meaning:"Father",
+    ref:"Romans 8:15",
+    verse:"You have received the Spirit of adoption as sons, by whom we cry, Abba! Father!",
+    prayer:"Dear God, Abba, remind me that I am deeply loved by You. Help me receive Your love and share that love with others today. Amen."
+  },
+  Disappointed:{
+    name:"El Roi",
+    meaning:"The God Who Sees Me",
+    ref:"Psalm 34:18",
+    verse:"The Lord is near to the brokenhearted and saves the crushed in spirit.",
+    prayer:"Dear God, El Roi, You see my disappointment even when others do not. Help me trust that one difficult moment does not define my future. Amen."
+  },
+  Afraid:{
+    name:"Jehovah Shalom",
+    meaning:"The LORD Is Peace",
+    ref:"Isaiah 41:10",
+    verse:"Fear not, for I am with you; be not dismayed, for I am your God.",
+    prayer:"Dear God, Jehovah Shalom, calm my fear and remind me that You are with me. Give me courage for what I am facing today. Amen."
+  },
+  Tired:{
+    name:"El Shaddai",
+    meaning:"God Almighty",
+    ref:"Matthew 11:28",
+    verse:"Come to me, all who labor and are heavy laden, and I will give you rest.",
+    prayer:"Dear God, El Shaddai, I am tired. Restore my strength, quiet my mind, and help me receive the rest my body and spirit need. Amen."
+  },
+  Confused:{
+    name:"Adonai",
+    meaning:"Lord and Master",
+    ref:"Proverbs 3:5-6",
+    verse:"Trust in the Lord with all your heart, and do not lean on your own understanding.",
+    prayer:"Dear God, Adonai, when I do not know what to do, guide my steps. Give me wisdom and help me trust You one step at a time. Amen."
+  },
+  Hurt:{
+    name:"El Roi",
+    meaning:"The God Who Sees Me",
+    ref:"Psalm 34:18",
+    verse:"The Lord is near to the brokenhearted and saves the crushed in spirit.",
+    prayer:"Dear God, El Roi, You see the hurt I carry. Bring healing to the places that still ache and help me move forward with peace. Amen."
+  },
+  Joyful:{
+    name:"Jehovah Nissi",
+    meaning:"The LORD Is My Banner",
+    ref:"Exodus 17:15",
+    verse:"The LORD is my banner.",
+    prayer:"Dear God, Jehovah Nissi, thank You for the joy in my heart today. Help me celebrate Your goodness and use my joy to encourage someone else. Amen."
+  },
+  Grateful:{
+    name:"Jehovah Jireh",
+    meaning:"The LORD Will Provide",
+    ref:"Psalm 107:1",
+    verse:"Oh give thanks to the LORD, for he is good, for his steadfast love endures forever!",
+    prayer:"Dear God, Jehovah Jireh, thank You for Your provision and faithfulness. Help me notice the blessings I sometimes overlook. Amen."
+  },
+  "Financially Strained":{
+    name:"Jehovah Jireh",
+    meaning:"The LORD Will Provide",
+    ref:"Philippians 4:19",
+    verse:"And my God will supply every need of yours according to his riches in glory in Christ Jesus.",
+    prayer:"Dear God, Jehovah Jireh, You know every financial need I am carrying. Give me wisdom with my money, provide what my family needs, open the right doors, and give me peace while I wait. Amen."
+  },
+  Depressed:{
+    name:"El Roi",
+    meaning:"The God Who Sees Me",
+    ref:"Psalm 34:18",
+    verse:"The Lord is near to the brokenhearted and saves the crushed in spirit.",
+    prayer:"Dear God, El Roi, You see me even in my darkest moments. Please surround me with Your love,
+  const namesOfGod = [
   {
     name:"Elohim",
     meaning:"God, Creator and Mighty One",
