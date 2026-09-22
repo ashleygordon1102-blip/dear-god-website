@@ -366,10 +366,13 @@ Daily prayers, Bible verses, and faith-filled resources to strengthen your faith
 <article class="card" id="verses">
 <div class="icon">♡</div>
 <h3>Verse of the Day</h3>
-<p>
-Be inspired daily with God's Word and a little encouragement for your heart.
-</p>
-<a class="btn" href="#">READ TODAY'S VERSE</a>
+<div id="verseBox" style="margin:15px 0;padding:18px;background:#fffdf8;border:1px solid #e4d8c4;border-radius:8px;">
+<strong>Today's Scripture</strong>
+<p id="verseText">Loading today's verse...</p>
+<small id="verseRef"></small>
+<p id="verseEncouragement"></p>
+</div>
+<a class="btn" href="#verseBox">READ TODAY'S VERSE</a>
 </article>
 
 <article class="card" id="prayers">
@@ -742,3 +745,50 @@ CART
 
 </body>
 </html>
+<script>
+const verses = [
+  {
+    ref:"Psalm 46:10",
+    text:"Be still, and know that I am God.",
+    encouragement:"You do not have to solve everything today. Pause, breathe, and remember that God is with you."
+  },
+  {
+    ref:"Isaiah 41:10",
+    text:"Fear not, for I am with you; be not dismayed, for I am your God.",
+    encouragement:"Whatever you are facing, you do not have to face it alone."
+  },
+  {
+    ref:"Jeremiah 29:11",
+    text:"For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a hope.",
+    encouragement:"Your current season is not the end of your story."
+  },
+  {
+    ref:"Philippians 4:13",
+    text:"I can do all things through Christ who strengthens me.",
+    encouragement:"Ask God for strength for the next step, not every step at once."
+  },
+  {
+    ref:"Psalm 34:18",
+    text:"The Lord is near to the brokenhearted and saves the crushed in spirit.",
+    encouragement:"God is especially near when your heart feels heavy."
+  },
+  {
+    ref:"Proverbs 3:5-6",
+    text:"Trust in the Lord with all your heart, and do not lean on your own understanding.",
+    encouragement:"You can trust God even when you cannot see the whole path."
+  }
+];
+
+function showVerse() {
+  const today = new Date();
+  const start = new Date(today.getFullYear(), 0, 0);
+  const day = Math.floor((today - start) / 86400000);
+  const verse = verses[day % verses.length];
+
+  document.getElementById("verseText").textContent = verse.text;
+  document.getElementById("verseRef").textContent = "— " + verse.ref;
+  document.getElementById("verseEncouragement").textContent = verse.encouragement;
+}
+
+document.addEventListener("DOMContentLoaded", showVerse);
+</script>
