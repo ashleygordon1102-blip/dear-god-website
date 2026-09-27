@@ -452,9 +452,9 @@ Choose a feeling below to find encouragement and Scripture.
 
 <div class="section-inner feelings">
 
-<div class="feel">☁ Anxious</div>
-<div class="feel">☹ Sad</div>
-<div class="feel">♡ Lonely</div>
+<button class="feel" type="button" onclick="showFeeling('Anxious')">😰 Anxious</button>
+<button class="feel" type="button" onclick="showFeeling('Sad')">😢 Sad</button>
+<button class="feel" type="button" onclick="showFeeling('Lonely')">🥺 Lonely</button>
 <div class="feel">✦ Overwhelmed</div>
 <div class="feel">♡ Thankful</div>
 <div class="feel">✦ Faithful</div>
@@ -915,4 +915,29 @@ function showVerse() {
 }
 
 document.addEventListener("DOMContentLoaded", showVerse);
+</script>
+<script>
+const feelingData = {
+  Anxious:{
+    name:"Jehovah Shalom",
+    meaning:"The LORD Is Peace",
+    ref:"Philippians 4:6-7",
+    verse:"Do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God.",
+    prayer:"Dear God, Jehovah Shalom, calm my anxious thoughts. Help me release each worry to You and receive Your peace. Guard my heart and mind today. Amen."
+  },
+  Sad:{
+    name:"El Roi",
+    meaning:"The God Who Sees Me",
+    ref:"Psalm 34:18",
+    verse:"The Lord is near to the brokenhearted and saves the crushed in spirit.",
+    prayer:"Dear God, El Roi, meet me in this sadness. Thank You for seeing me and staying close when my heart feels heavy. Comfort me and remind me that I am never alone. Amen."
+  },
+  Lonely:{
+    name:"Immanuel",
+    meaning:"God With Us",
+    ref:"Deuteronomy 31:8",
+    verse:"It is the Lord who goes before you. He will be with you; He will not leave you or forsake you.",
+    prayer:"Dear God, Immanuel, when I feel alone, remind me of Your constant presence. Surround me with healthy love and meaningful connection. Amen."
+  }
+};  
 </script>
