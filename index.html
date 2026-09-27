@@ -381,7 +381,9 @@ Daily prayers, Bible verses, and faith-filled resources to strengthen your faith
 <p>
 Start your day with a purposeful prayer for peace, strength, gratitude, and hope.
 </p>
-<a class="btn" href="#prayers">PRAY WITH US</a>
+<a class="btn" href="#dailyPrayerResult" onclick="showDailyPrayer(); return false;">PRAY WITH US</a>
+<div id="dailyPrayerResult" style="background:#fffdf8;color:#171513;border:1px solid #e4d8c4;border-radius:8px;padding:25px;text-align:center;margin-top:20px;" hidden>
+</div>
 </article>
 
 <article class="card">
@@ -995,4 +997,19 @@ function showFeeling(name){
     block:"center"
   });
 }
+function showDailyPrayer(){
+  const box = document.getElementById("dailyPrayerResult");
+  if(!box) return;
+
+  box.hidden = false;
+
+  box.innerHTML =
+    "<h3>Today's Prayer</h3>" +
+    "<p>Dear God, thank You for giving me another day. Fill my heart with Your peace, give me strength for whatever I face, and guide my thoughts, words, and actions. Help me trust You, walk in faith, and remember that I am never alone. Amen.</p>";
+
+  box.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+}  
 </script>
