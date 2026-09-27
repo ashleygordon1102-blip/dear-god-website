@@ -940,4 +940,23 @@ const feelingData = {
     prayer:"Dear God, Immanuel, when I feel alone, remind me of Your constant presence. Surround me with healthy love and meaningful connection. Amen."
   }
 };  
+function showFeeling(name){
+  const f = feelingData[name];
+  const box = document.getElementById("feelingResult");
+
+  if(!box || !f) return;
+
+  box.hidden = false;
+
+  box.innerHTML =
+    "<h3>" + name + "</h3>" +
+    "<p><strong>" + f.name + " — " + f.meaning + "</strong></p>" +
+    "<div>“" + f.verse + "”<br><strong>— " + f.ref + "</strong></div>" +
+    "<div style='margin-top:15px'><strong>Prayer:</strong><br>" + f.prayer + "</div>";
+
+  box.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+}
 </script>
